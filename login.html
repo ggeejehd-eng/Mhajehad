@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - MJ36-01</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/themes.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/heart.svg" type="image/svg+xml">
+</head>
+<body class="auth-page">
+    <!-- Header -->
+    <header class="auth-header">
+        <div class="container">
+            <div class="auth-header-content">
+                <h1 class="app-title">MJ36-01</h1>
+                <p class="app-subtitle">تطبيق دردشة حصري</p>
+                
+                <!-- Theme & Language Toggle -->
+                <div class="header-controls">
+                    <button class="theme-toggle" title="تبديل الوضع الداكن">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="language-toggle" title="تبديل اللغة">
+                        <span class="lang-text">EN</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-main">
+        <div class="container">
+            <div class="auth-container">
+                <!-- Login Form -->
+                <div class="auth-form active" id="loginFormContainer">
+                    <div class="auth-card">
+                        <div class="auth-card-header">
+                            <h2 class="auth-title">تسجيل الدخول</h2>
+                            <p class="auth-subtitle">أهلاً بك مرة أخرى</p>
+                        </div>
+                        
+                        <form id="loginForm" class="auth-form-content">
+                            <div class="form-group">
+                                <label for="loginUsername" class="form-label">اسم المستخدم</label>
+                                <input type="text" id="loginUsername" name="username" class="form-input" 
+                                       placeholder="أدخل اسم المستخدم" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="loginPassword" class="form-label">كلمة المرور</label>
+                                <input type="password" id="loginPassword" name="password" class="form-input" 
+                                       placeholder="أدخل كلمة المرور" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full" data-original-text="تسجيل الدخول">
+                                تسجيل الدخول
+                            </button>
+                        </form>
+                        
+                        <div class="auth-card-footer">
+                            <p>ليس لديك حساب؟ 
+                                <button class="form-switch link-btn" data-target="registerFormContainer">
+                                    إنشاء حساب جديد
+                                </button>
+                            </p>
+                            <p>هل أنت مسؤول؟ 
+                                <button class="form-switch link-btn" data-target="adminFormContainer">
+                                    دخول لوحة التحكم
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-form" id="registerFormContainer">
+                    <div class="auth-card">
+                        <div class="auth-card-header">
+                            <h2 class="auth-title">إنشاء حساب جديد</h2>
+                            <p class="auth-subtitle">انضم إلينا الآن</p>
+                        </div>
+                        
+                        <form id="registerForm" class="auth-form-content">
+                            <div class="form-group">
+                                <label for="registerUsername" class="form-label">اسم المستخدم</label>
+                                <input type="text" id="registerUsername" name="username" class="form-input" 
+                                       placeholder="اختر اسم مستخدم فريد" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="registerPassword" class="form-label">كلمة المرور</label>
+                                <input type="password" id="registerPassword" name="password" class="form-input" 
+                                       placeholder="أدخل كلمة مرور قوية" required minlength="6">
+                                <small class="form-hint">6 أحرف على الأقل</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="registerConfirmPassword" class="form-label">تأكيد كلمة المرور</label>
+                                <input type="password" id="registerConfirmPassword" name="confirmPassword" class="form-input" 
+                                       placeholder="أعد إدخال كلمة المرور" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full" data-original-text="إنشاء الحساب">
+                                إنشاء الحساب
+                            </button>
+                        </form>
+                        
+                        <div class="auth-card-footer">
+                            <p>لديك حساب بالفعل؟ 
+                                <button class="form-switch link-btn" data-target="loginFormContainer">
+                                    تسجيل الدخول
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Form -->
+                <div class="auth-form" id="adminFormContainer">
+                    <div class="auth-card">
+                        <div class="auth-card-header">
+                            <h2 class="auth-title">دخول الآدمن</h2>
+                            <p class="auth-subtitle">لوحة التحكم</p>
+                        </div>
+                        
+                        <form id="adminForm" class="auth-form-content">
+                            <div class="form-group">
+                                <label for="adminCode" class="form-label">رمز الآدمن</label>
+                                <input type="password" id="adminCode" name="adminCode" class="form-input" 
+                                       placeholder="أدخل رمز الآدمن" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-danger btn-full" data-original-text="دخول لوحة التحكم">
+                                دخول لوحة التحكم
+                            </button>
+                        </form>
+                        
+                        <div class="auth-card-footer">
+                            <p>العودة إلى 
+                                <button class="form-switch link-btn" data-target="loginFormContainer">
+                                    تسجيل الدخول
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="auth-footer">
+        <div class="container">
+            <p>&copy; 2024 MJ36-01. تطبيق دردشة حصري</p>
+            <p class="footer-note">
+                <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                صُنع بحب للأحباب
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Custom Styles for Login Page -->
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-page::before {
+            content: ‘’;
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: backgroundAnimation 20s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.2) rotate(360deg); }
+        }
+
+        .auth-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .theme-toggle, .language-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover, .language-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: block;
+        }
+
+        .lang-text {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .auth-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-container {
+            max-width: 450px;
+            margin: 0 auto;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInScale 0.5s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        [data-theme="dark"] .auth-card {
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid rgba(50, 50, 50, 0.3);
+        }
+
+        .auth-card-header {
+            padding: 2.5rem 2.5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card-header::before {
+            content: ‘’;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .auth-card-header::after {
+            content: ‘’;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 0 0.75rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .auth-form-content {
+            padding: 0 2.5rem 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.2);
+            background: var(--bg-card);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-hint {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            font-size: 1.1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(220, 53, 69, 0.4);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .auth-card-footer {
+            padding: 1.5rem 2.5rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+
+        .auth-card-footer p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .link-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: inherit;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .link-btn:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .auth-footer {
+            padding: 1.5rem 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-icon {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 2rem;
+            }
+            .app-subtitle {
+                font-size: 0.9rem;
+            }
+            .theme-toggle, .language-toggle {
+                width: 40px;
+                height: 40px;
+            }
+            .theme-icon {
+                width: 20px;
+                height: 20px;
+            }
+            .lang-text {
+                font-size: 0.9rem;
+            }
+            .auth-card-header {
+                padding: 2rem 1.5rem 1rem;
+            }
+            .auth-title {
+                font-size: 1.75rem;
+            }
+            .auth-subtitle {
+                font-size: 1rem;
+            }
+            .auth-form-content {
+                padding: 0 1.5rem 1rem;
+            }
+            .form-input, .btn {
+                font-size: 0.95rem;
+                padding: 0.75rem 1rem;
+            }
+            .auth-card-footer {
+                padding: 1rem 1.5rem 1.5rem;
+            }
+            .auth-footer {
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</body>
+</html>
+
