@@ -1,0 +1,487 @@
+/* Layout CSS - التخطيط العام والشبكات */
+
+/* الحاوي الرئيسي */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+/* تخطيط الصفحة الرئيسي */
+.app-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    transition: all var(--transition-normal);
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-secondary);
+}
+
+.app-footer {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* شريط التنقل العلوي */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    min-height: 60px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    gap: var(--spacing-sm);
+}
+
+.navbar-brand:hover {
+    color: var(--primary-dark);
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    list-style: none;
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-fast);
+    gap: var(--spacing-xs);
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--text-inverse);
+}
+
+/* شريط التبويبات */
+.tab-navigation {
+    display: flex;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tab-navigation::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-item {
+    flex: 1;
+    min-width: 80px;
+    padding: var(--spacing-md);
+    text-align: center;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    font-size: var(--font-size-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.tab-item:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-tertiary);
+}
+
+.tab-item.active {
+    color: var(--primary-color);
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.tab-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* محتوى التبويبات */
+.tab-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* الشبكة المرنة */
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* الصفوف المرنة */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-1 * var(--spacing-sm));
+}
+
+.col {
+    flex: 1;
+    padding: 0 var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* أحجام الأعمدة */
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-9 { flex: 0 0 75%; max-width: 75%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* تخطيط الدردشة */
+.chat-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(100vh - 120px);
+}
+
+.chat-header {
+    padding: var(--spacing-md);
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.chat-input-area {
+    padding: var(--spacing-md);
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+}
+
+/* تخطيط البطاقات */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.masonry-grid {
+    columns: 3;
+    column-gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-md);
+}
+
+/* تخطيط الملف الشخصي */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+}
+
+.profile-sidebar {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+    height: fit-content;
+}
+
+.profile-content {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+}
+
+/* تخطيط لوحة التحكم */
+.admin-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+}
+
+.admin-content {
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    overflow-y: auto;
+}
+
+.admin-header {
+    background-color: var(--bg-card);
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* تخطيط شاشة تسجيل الدخول */
+.login-layout {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-color) 100%);
+    padding: var(--spacing-md);
+}
+
+.login-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-2xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-2xl);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* تخطيط المشاهدة */
+.watch-layout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+}
+
+.video-container {
+    flex: 1;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.video-controls {
+    background-color: var(--bg-card);
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+/* الاستجابة للشاشات المختلفة */
+@media (max-width: 1024px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .masonry-grid {
+        columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .navbar {
+        padding: var(--spacing-sm);
+    }
+    
+    .navbar-nav {
+        gap: var(--spacing-xs);
+    }
+    
+    .tab-item {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-sm);
+    }
+    
+    .masonry-grid {
+        columns: 1;
+        padding: var(--spacing-sm);
+    }
+    
+    .login-card {
+        padding: var(--spacing-xl);
+        margin: var(--spacing-sm);
+    }
+    
+    .profile-layout,
+    .admin-layout {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .row {
+        margin: 0;
+    }
+    
+    .col {
+        padding: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .tab-navigation {
+        border-radius: 0;
+    }
+    
+    .chat-messages {
+        padding: var(--spacing-sm);
+    }
+    
+    .chat-input-area {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* تحسينات RTL */
+html[dir="rtl"] .navbar-brand {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .navbar-nav .nav-link {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .admin-layout {
+    grid-template-columns: 1fr 250px;
+}
+
+html[dir="rtl"] .admin-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+}
+
+html[dir="rtl"] .chat-header {
+    flex-direction: row-reverse;
+}
+
+/* تحسينات الوصول */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* طباعة */
+@media print {
+    .app-header,
+    .app-footer,
+    .tab-navigation,
+    .navbar,
+    .admin-sidebar {
+        display: none;
+    }
+    
+    .app-main {
+        margin: 0;
+        padding: 0;
+    }
+}
+
